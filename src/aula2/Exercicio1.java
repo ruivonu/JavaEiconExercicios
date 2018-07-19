@@ -10,14 +10,12 @@ import java.util.Scanner;
 public class Exercicio1 {	
 	public Exercicio1(){}
 	public static void main(String[] args) {
-		Scanner inputSalario = new Scanner(System.in);
-		Scanner inputDescontos = new Scanner(System.in);
-		Scanner inputEmprestimo = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
 		Exercicio1 exer1   = new Exercicio1();
 		
-		BigDecimal vlSalario   	= exer1.getSalario(inputSalario);
-		BigDecimal vlDesconto	= exer1.getDesconto(inputDescontos);
-		BigDecimal vlEmprestimo	= exer1.getEmprestimo(inputEmprestimo);
+		BigDecimal vlSalario   	= exer1.getSalario(input);
+		BigDecimal vlDesconto	= exer1.getDesconto(input);
+		BigDecimal vlEmprestimo	= exer1.getEmprestimo(input);
 		
 		// Calculos para Conceção
 		boolean respostaEmprestimo	= exer1.getRespostaCalculo(vlSalario, vlDesconto, vlEmprestimo);
@@ -28,38 +26,36 @@ public class Exercicio1 {
 			System.out.println("Não atingiu a meta de 30% do salário líquido para o emprestimo.");
 		}
 		
-		inputSalario.close();
-		inputDescontos.close();
-		inputEmprestimo.close();
+		input.close();
 	}
 		
-	private BigDecimal getSalario(Scanner inputSalario) {
+	private BigDecimal getSalario(Scanner input) {
 		BigDecimal vlSal = new BigDecimal("0");
 		System.out.print("Entre com valor do salário:");
 		try {
-			vlSal = inputSalario.nextBigDecimal();
+			vlSal = input.nextBigDecimal();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vlSal;
 	}
 	
-	private BigDecimal getDesconto(Scanner inputDescontos) {
+	private BigDecimal getDesconto(Scanner input) {
 		BigDecimal vlDescontos = new BigDecimal("0");
 		System.out.print("Entre com valor de desconto:");
 		try {
-			vlDescontos = inputDescontos.nextBigDecimal();
+			vlDescontos = input.nextBigDecimal();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vlDescontos;
 	}
 	
-	private BigDecimal getEmprestimo(Scanner inputEmprestimo) {
+	private BigDecimal getEmprestimo(Scanner input) {
 		BigDecimal vlEmprestimo = new BigDecimal("0");
 		System.out.print("Entre com valor do empréstimo:");
 		try {
-			vlEmprestimo = inputEmprestimo.nextBigDecimal();
+			vlEmprestimo = input.nextBigDecimal();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
