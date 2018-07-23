@@ -10,18 +10,16 @@ import java.util.Scanner;
 public class Exercicio1 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		DecimalFormat df = new DecimalFormat("0.00");
 		int qtdVotos 			= 0;
 		int votoApurado 		= 0;
 		double branco 			= 0;
 		double canndidatoCod1 	= 0;
 		double canndidatoCod2 	= 0;
 		double canndidatoCod3 	= 0;
-		String resultado 		= null;
 		
 		qtdVotos = getQtdVotos(input);
 		
-		System.out.println("Os candidatos são: Eicon, Alura e Java");
+		System.out.println("Os candidatos são: Eicon, Alura e Java. \nPara voto em branco basta entrar com um candidato inexistente!");
 		
 		for (int i = 1; i <= qtdVotos; i++){
 			votoApurado = getCodCandidato(input, i);
@@ -37,16 +35,24 @@ public class Exercicio1 {
 			}
 		}
 		
+		dadosVotacao(qtdVotos, canndidatoCod1, canndidatoCod2, canndidatoCod3, branco);
+		input.close();
+	}
+
+	private static void dadosVotacao(int qtdVotos, double canndidatoCod1, double canndidatoCod2, double canndidatoCod3, double branco) {
+		DecimalFormat df = new DecimalFormat("0.00");
+		String resultado = null;
+		
 		if(((canndidatoCod1 > canndidatoCod2) && (canndidatoCod1 > canndidatoCod3))){
-			resultado = "EICON com " + canndidatoCod1 + " Votos";
+			resultado = "EICON com " + canndidatoCod1 + " de " + qtdVotos + " Votos";
 		}else if(((canndidatoCod2 > canndidatoCod1) && (canndidatoCod2 > canndidatoCod3))){
-			resultado = "ALURA com " + canndidatoCod2 + " Votos";
+			resultado = "ALURA com " + canndidatoCod2 + " de " + qtdVotos + " Votos";
 		}else if(((canndidatoCod3 > canndidatoCod2) && (canndidatoCod3 > canndidatoCod1))){
-			resultado = "JAVA com " + canndidatoCod3 + " Votos";
+			resultado = "JAVA com " + canndidatoCod3 + " de " + qtdVotos + " Votos";
 		}
 		
 		System.out.println("O candidato eleito foi: " + resultado);
-		System.out.println("Porcentagem de votos dos candidatos:");
+		System.out.println("\nPorcentagem de votos dos candidatos:\n");
 		System.out.println("Eicon: " + df.format((canndidatoCod1 / qtdVotos) * 100) + "%");
 		System.out.println("Alura: " + df.format((canndidatoCod2 / qtdVotos) * 100) + "%");
 		System.out.println("Java : " + df.format((canndidatoCod3 / qtdVotos) * 100) + "%");
@@ -68,9 +74,9 @@ public class Exercicio1 {
 	private static int getCodCandidato(Scanner input, int j) {
 		String nmCandidto  = null;
 		int retCodCandidto = 0;
-		System.out.println("Voto " + j + ". Entre com o candidato desejado:");
+		System.out.println("Voto " + j + ". \nEntre com o candidato desejado:");
 		try {
-			nmCandidto = input.nextLine();
+			nmCandidto = input.next();
 			switch (nmCandidto.toUpperCase()) {
 				case "EICON" :  retCodCandidto = 1 ;
 								break;
