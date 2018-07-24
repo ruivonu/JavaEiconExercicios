@@ -13,18 +13,22 @@ import java.text.ParseException;
 public class Exercicio2 {
 	public static void main(String[] args) throws ParseException {
 		//SimpleDateFormat sdf = new SimpleDateFormat("MMMM");
-		BigDecimal valorDivida = new BigDecimal(100.0);
+		BigDecimal valorDivida = new BigDecimal(100.00);
 		BigDecimal valorCorrecao = new BigDecimal(1.8);
-		System.out.println("Anos - Jan    - Fev    - Mar    - Abr    - Mai    - Jun    - Jul    - Ago    - Set    - Out    - Nov    - Dez");
+		System.out.println("Anos - Jan    - Fev    - Mar    - Abr    - Mai    - Jun    - Jul    - Ago    - Set    - Out    - Nov    - Dez   -");
 		for(int i = 2007; i <= 2018; i++){
 			System.out.print(i + " - ");
-			for(int j = 1; j <= 12; j++){
+			/*for(int j = 1; j <= 12; j++){
 				//String nmStringMes = Integer.toString(j);
-				/*System.out.print(sdf.parse(String.valueOf(j)) + " "j + " - ");*/
-			}
+				System.out.print(sdf.parse(String.valueOf(j)) + " "j + " - ");
+			}*/
 			for(int j = 1; j <= 12; j++){
-				valorDivida = ((valorDivida.multiply(valorCorrecao.setScale(2, RoundingMode.HALF_EVEN))).divide(new BigDecimal("100")).add(valorDivida)).setScale(2, RoundingMode.HALF_EVEN);
-				System.out.print(valorDivida + " - ");
+				if(i != 2017 & j != 1){
+					valorDivida = ((valorDivida.multiply(valorCorrecao.setScale(2, RoundingMode.HALF_EVEN))).divide(new BigDecimal("100")).add(valorDivida)).setScale(2, RoundingMode.HALF_EVEN);
+					System.out.print(valorDivida + " - ");
+				}else{
+					System.out.print(valorDivida.setScale(2, RoundingMode.HALF_EVEN) + " - ");
+				}
 			}
 			System.out.println("");
 		}
