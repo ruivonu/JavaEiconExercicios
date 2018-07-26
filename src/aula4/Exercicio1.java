@@ -1,5 +1,7 @@
 package aula4;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 //Crie um programa para simular uma urna de votação para exatamente 3 candidatos.  
@@ -19,29 +21,41 @@ public class Exercicio1 {
 		
 		input.close();
 	}
+	
 	private static void getComputaVotos(Scanner input) {
-		Urna urna = new Urna();
-		int quantidadeVotos = urna.getQuantidateVotos();
-		for(int j = 1; j <= quantidadeVotos; j++){
+		
+		//for(int j = 1; j <= quantidadeVotos; j++){
 			System.out.println("");
-			System.out.print("Entre com o " + j + "º voto da urna: ");
-			String votoNomeCandidato = input.next();
-			urna.setVoto(votoNomeCandidato);
-		}
+			//System.out.print("Entre com o " + j + "º voto da urna: ");
+			//String votoNomeCandidato = input.next();
+			//Candidatos.setVotoCandidato();
+		//}
 	}
+	
 	private static void getQuantidadeVotos(Scanner input) {
-		Urna urna = new Urna();
+		Urna urna = new Urna(0);
 		System.out.print("Entre com o nº de votos totais da urna: ");
 		int quantidadeVotos = input.nextInt();
 		urna.setQuantidateVotos(quantidadeVotos);
 	}
 	
 	private static void getInputCandidato(Scanner input) {
-		for(int i = 1; i <= 3; i++){
-			//Candidatos candidato[i] = new Candidatos();
-			System.out.print("Entre com o nome do " + i + "º candidato: ");
-			String nomeCandidato = input.next(); 
-			//candidato[i].setCandidato(nomeCandidato);
-		}
+		System.out.print("Entre com o nome do 1º candidato: ");
+		String nomeCandidato1 = input.next();
+		Candidatos candidato1 = new Candidatos(nomeCandidato1,0);
+		
+		System.out.print("Entre com o nome do 2º candidato: ");
+		String nomeCandidato2 = input.next();
+		Candidatos candidato2 = new Candidatos(nomeCandidato2,0);
+		
+		System.out.print("Entre com o nome do 3º candidato: ");
+		String nomeCandidato3 = input.next();
+		Candidatos candidato3 = new Candidatos(nomeCandidato3,0);
+		
+		List<Candidatos> candidato = new ArrayList<Candidatos>();
+		
+		candidato.add(candidato1);
+		candidato.add(candidato2);
+		candidato.add(candidato3);
 	}	
 }
