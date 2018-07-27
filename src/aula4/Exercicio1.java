@@ -42,15 +42,15 @@ public class Exercicio1 {
 	private static void getInputCandidato(Scanner input) {
 		System.out.print("Entre com o nome do 1º candidato: ");
 		String nomeCandidato1 = input.next();
-		Candidatos candidato1 = new Candidatos(nomeCandidato1,0);
+		Candidatos candidato1 = new Candidatos(nomeCandidato1,1);
 		
 		System.out.print("Entre com o nome do 2º candidato: ");
 		String nomeCandidato2 = input.next();
-		Candidatos candidato2 = new Candidatos(nomeCandidato2,0);
+		Candidatos candidato2 = new Candidatos(nomeCandidato2,2);
 		
 		System.out.print("Entre com o nome do 3º candidato: ");
 		String nomeCandidato3 = input.next();
-		Candidatos candidato3 = new Candidatos(nomeCandidato3,0);
+		Candidatos candidato3 = new Candidatos(nomeCandidato3,3);
 		
 		List<Candidatos> candidato = new ArrayList<Candidatos>();
 		
