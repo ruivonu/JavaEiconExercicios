@@ -1,27 +1,41 @@
 package aula4;
 
 public class Candidatos {
-	private String nomeCandidato;
-	private int votosCandidatos;
-	
-	public Candidatos(String nomeCandidato, int votosCandidatos) {
-        this.nomeCandidato = nomeCandidato;
-        this.votosCandidatos = votosCandidatos;
-    }
-	
-	public void setCandidato(String nomeCandidato){
-		this.nomeCandidato = nomeCandidato;
+	private String nome;
+	private double votosCandidato;
+	private int id;
+    
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
-	public void setVotoCandidato(){
-		this.votosCandidatos++;
+	public String getNome() {
+		return this.nome;
 	}
 	
-	public String getNomeCandidato(){
-		return this.nomeCandidato;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
-	public int getVotosCandidato(){
-		return this.votosCandidatos;
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setCandidato() {
+		this.votosCandidato = this.votosCandidato+1;
+	}
+	
+	public double getCandidato() {
+		return this.votosCandidato;
+	}
+	
+	public String retornaCandidatos(String candidato1, String candidato2, String candidato3) {
+		return " 1 - " + candidato1 + "\n" +
+			   " 2 - " + candidato2 + "\n" + 
+			   " 3 - " + candidato3 + "\n";
+	}
+	
+	public double getPercentualVotos(double totalVotos) {
+		return (this.getCandidato() / totalVotos) * 100;
 	}
 }

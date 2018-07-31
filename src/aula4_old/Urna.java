@@ -1,4 +1,4 @@
-package aula4;
+package aula4_old;
 
 public class Urna {
 	private int quantidadeVotos;
