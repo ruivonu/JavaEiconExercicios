@@ -1,9 +1,9 @@
 package br.com.eicon.aula7;
 
-public class Hominidae extends Primata {
+public class Diptera extends Insecta{
 	@Override
 	protected String getDescricao() {
 		System.out.println(super.getDescricao());
-		return "Hominidae";
+		return "Diptera";
 	}
 }
